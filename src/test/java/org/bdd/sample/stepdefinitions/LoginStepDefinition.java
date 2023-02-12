@@ -1,9 +1,11 @@
 package org.bdd.sample.stepdefinitions;
 
+import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.bdd.sample.pojo.Color;
 
 public class LoginStepDefinition {
 
@@ -26,6 +28,17 @@ public class LoginStepDefinition {
   @And("Cards are displayed")
   public void cardsAreDisplayed() {
     System.out.println("Cards are displayed");
+  }
+
+  @Given("I have a {color} ball")
+  public void iHaveAColorBall(Color color) {
+    System.out.println(color);
+  }
+
+  //https://cucumber.io/docs/cucumber/configuration/?lang=java
+  @ParameterType("red|blue|yellow")
+  public Color color(String color){
+    return new Color(color);
   }
 
 }

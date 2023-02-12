@@ -10,3 +10,6 @@ Feature: Application Login
     When User Logs in to application with username "piku" and password "4321"
     Then Home Page is displayed
     And Cards are displayed
+
+  Scenario: Testing of ParameterType
+    Given I have a blue ball
