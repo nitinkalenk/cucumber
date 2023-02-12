@@ -12,9 +12,10 @@ public class LoginStepDefinition {
     System.out.println("User is on NetBanking Landing Page");
   }
 
-  @When("User Logs in to application with username and password")
-  public void userLogsInToApplicationWithUsernameAndPassword() {
-    System.out.println("User Logs in to application with username and password");
+  //https://github.com/cucumber/cucumber-expressions
+  @When("User Logs in to application with username {string} and password {string}")
+  public void userLogsInToApplicationWithUsernameAndPassword(String username, String password) {
+    System.out.println(String.format("User Logs in to application with username %s and password %s", username, password));
   }
 
   @Then("Home Page is displayed")
