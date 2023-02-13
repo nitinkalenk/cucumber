@@ -64,6 +64,7 @@ public class LoginStepDefinition {
   }
 
   @DataTableType
+  //https://github.com/cucumber/cucumber-jvm/tree/main/cucumber-java#transformers
   public Candidate candidateEntryTransformer(Map<String, String> entry) {
     return new Candidate(entry.get("userName"), entry.get("password"), Integer.parseInt(entry.get("age")), entry.get("org"));
   }
@@ -71,6 +72,12 @@ public class LoginStepDefinition {
   @Given("I have a below details with header using transformer")
   public void iHaveABelowDetailsWithHeaderUsingTransformer(List<Candidate> candidates) {
     candidates.forEach(System.out::println);
+  }
+
+
+  @When("I want to login with username {string} and password {string}")
+  public void iWantToLoginWithUsernameUserNameAndPasswordPassword(String userName, String password) {
+    System.out.println("userName " + userName + " password " + password);
   }
 
 }

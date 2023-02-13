@@ -28,3 +28,11 @@ Feature: Application Login
       | userName | password | age | organization |
       | nitin    | 1234     | 29  | medline |
 
+  Scenario Outline: Example of using examples in cucumber
+    Given User is on NetBanking Landing Page
+    When I want to login with username "<UserName>" and password "<Password>"
+    Then Home Page is displayed
+    Examples:
+      | UserName | Password |
+      | nitin    | 1234     |
+
