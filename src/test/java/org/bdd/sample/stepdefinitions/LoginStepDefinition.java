@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.util.List;
+import java.util.Map;
 import org.bdd.sample.pojo.Color;
 
 public class LoginStepDefinition {
@@ -48,6 +49,15 @@ public class LoginStepDefinition {
     List<List<String>> lists = dataTable.asLists();
     System.out.println("printing list");
     lists.forEach(list -> list.forEach(System.out::println));
+  }
+
+  @Given("I have a below details with header")
+  public void iHaveABelowDetailsWithHeader(DataTable dataTable) {
+    System.out.println("priting table with header");
+    List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+    data.forEach(row -> {
+      row.entrySet().forEach(entry -> System.out.print(entry + "  "));
+    });
   }
 
 }

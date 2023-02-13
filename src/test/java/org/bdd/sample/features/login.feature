@@ -17,3 +17,8 @@ Feature: Application Login
   Scenario: Testing of DataTable
     Given I have a below details
     | nitin | 1234 | 29 | medline
+
+  Scenario: Testing of DataTable with header
+    Given I have a below details with header
+    | name | password | age | orgName
+    | nitin | 1234 | 29 | medline
