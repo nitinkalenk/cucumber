@@ -1,4 +1,7 @@
 Feature: Application Login
+  Background:
+    Given Browser is open
+
   Scenario: Home Page default login
     Given User is on NetBanking Landing Page
     When User Logs in to application with username "nitin" and password "1234"

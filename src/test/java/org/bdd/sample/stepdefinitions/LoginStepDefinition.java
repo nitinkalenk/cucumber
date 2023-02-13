@@ -80,4 +80,9 @@ public class LoginStepDefinition {
     System.out.println("userName " + userName + " password " + password);
   }
 
+  @Given("Browser is open")
+  public void browserIsOpen() {
+    System.out.println("Browser is open");
+  }
+
 }
