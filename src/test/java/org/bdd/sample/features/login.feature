@@ -13,3 +13,7 @@ Feature: Application Login
 
   Scenario: Testing of ParameterType
     Given I have a blue ball
+
+  Scenario: Testing of DataTable
+    Given I have a below details
+    | nitin | 1234 | 29 | medline

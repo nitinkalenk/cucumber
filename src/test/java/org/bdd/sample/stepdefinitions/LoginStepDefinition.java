@@ -1,10 +1,12 @@
 package org.bdd.sample.stepdefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.util.List;
 import org.bdd.sample.pojo.Color;
 
 public class LoginStepDefinition {
@@ -39,6 +41,13 @@ public class LoginStepDefinition {
   @ParameterType("red|blue|yellow")
   public Color color(String color){
     return new Color(color);
+  }
+
+  @Given("I have a below details")
+  public void iHaveABelowDetails(DataTable dataTable) {
+    List<List<String>> lists = dataTable.asLists();
+    System.out.println("printing list");
+    lists.forEach(list -> list.forEach(System.out::println));
   }
 
 }
