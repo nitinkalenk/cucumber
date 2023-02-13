@@ -1,6 +1,7 @@
 package org.bdd.sample.stepdefinitions;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.util.List;
 import java.util.Map;
+import org.bdd.sample.pojo.Candidate;
 import org.bdd.sample.pojo.Color;
 
 public class LoginStepDefinition {
@@ -40,7 +42,7 @@ public class LoginStepDefinition {
 
   //https://cucumber.io/docs/cucumber/configuration/?lang=java
   @ParameterType("red|blue|yellow")
-  public Color color(String color){
+  public Color color(String color) {
     return new Color(color);
   }
 
@@ -56,8 +58,19 @@ public class LoginStepDefinition {
     System.out.println("priting table with header");
     List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
     data.forEach(row -> {
-      row.entrySet().forEach(entry -> System.out.print(entry + "  "));
+      row.entrySet()
+          .forEach(entry -> System.out.print(entry + "  "));
     });
+  }
+
+  @DataTableType
+  public Candidate candidateEntryTransformer(Map<String, String> entry) {
+    return new Candidate(entry.get("userName"), entry.get("password"), Integer.parseInt(entry.get("age")), entry.get("org"));
+  }
+
+  @Given("I have a below details with header using transformer")
+  public void iHaveABelowDetailsWithHeaderUsingTransformer(List<Candidate> candidates) {
+    candidates.forEach(System.out::println);
   }
 
 }

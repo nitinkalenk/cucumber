@@ -20,5 +20,11 @@ Feature: Application Login
 
   Scenario: Testing of DataTable with header
     Given I have a below details with header
-    | name | password | age | orgName
-    | nitin | 1234 | 29 | medline
+    | userName | password | age | organization |
+    | nitin    | 1234     | 29  | medline |
+
+  Scenario: Testing of DataTable with header
+    Given I have a below details with header using transformer
+      | userName | password | age | organization |
+      | nitin    | 1234     | 29  | medline |
+
