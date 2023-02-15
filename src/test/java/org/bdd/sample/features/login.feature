@@ -14,6 +14,7 @@ Feature: Application Login
     Then Home Page is displayed
     And Cards are displayed
 
+  @SanityTest
   Scenario: Testing of ParameterType
     Given I have a blue ball
 
